@@ -13,7 +13,13 @@ function App() {
 
   //now let's change the functionality so instead of clicking a button to display the facts, we want all the facts to display on page load. This will need to use useEffect
   //useEffect will run every single time the page loads, unless we give it something in the dependency array (the second argumet)
-  useEffect( () => {console.log("Hello")}, [])
+  //let's have the useEffect update our state on page load, instead of clicking the button
+  useEffect( () => {
+    fetch("https://cat-fact.herokuapp.com/facts")
+      .then(res => res.json())
+      .then(res => setFacts(res.all))
+      .catch(err => console.log(err))
+  }, [])
 
   //function definition for button event below - using fetch
   const getCatFacts = () => {
