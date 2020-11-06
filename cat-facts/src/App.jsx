@@ -36,14 +36,16 @@ function App() {
       >Get Cat Facts</button>   
 
       {/* loop through each fact to display it  */}
-      {
-        facts.map( (a_fact, i) => {
-          return (
-            <CatCard key={i} fact={a_fact} />
-            //'fact' is the name of the variable used in the component
-          );
-        })
-      }
+      <div className="d-flex justify-content-around flex-wrap p-5">
+        {
+          facts.map( (a_fact, i) => {
+            return (
+              <CatCard key={i} fact={a_fact} />
+              //'fact' is the name of the variable used in the component
+            );
+          })
+        }
+      </div>
       
     </div>
   );
