@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css";//import bootstrap for styling
 import React, { useState, useEffect } from 'react';//import state and effect capabilities
+import Axios from 'axios';//import axios to use instead of fetch
 
 //import components
 import CatCard from './components/CatCard';
@@ -15,10 +16,10 @@ function App() {
   //useEffect will run every single time the page loads, unless we give it something in the dependency array (the second argumet)
   //let's have the useEffect update our state on page load, instead of clicking the button
   useEffect( () => {
-    fetch("https://cat-fact.herokuapp.com/facts")
-      .then(res => res.json())
-      .then(res => setFacts(res.all))
-      .catch(err => console.log(err))
+    //replacing the fetch method with axios to get the API data
+    Axios.get("https://cat-fact.herokuapp.com/facts")
+      .then( res => setFacts(res.data.all))
+      .catch( err => console.log(err))
   }, [])
 
   //function definition for button event below - using fetch
