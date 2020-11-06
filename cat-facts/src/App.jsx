@@ -9,8 +9,9 @@ import FactCard from './components/FactCard';
 
 function App() {
 
-  //create andinitialize state variables - will house and manage all the facts we will bring in
+  //create and initialize state variables - will house and manage all the facts we will bring in
   const [facts, setFacts] = useState([]);
+  const [input, setInput] = useState('');//for form input
 
   //now let's change the functionality so instead of clicking a button to display the facts, we want all the facts to display on page load. This will need to use useEffect
   //useEffect will run every single time the page loads, unless we give it something in the dependency array (the second argumet)
@@ -37,6 +38,19 @@ function App() {
 
   return (
     <div className="App">
+      {/* create input text box form */}
+      <input 
+        type="text" 
+        value={input} 
+
+        // onChange is so we can see what we are typing
+        onChange={ (e) => {
+            return(
+              setInput(e.target.value)
+            );
+          }
+        }
+      />
 
       {/* create a button */}
       <button 
