@@ -4,6 +4,7 @@
 
 import Axios from 'axios';//to access the API
 import React, {useState, useEffect} from 'react';//since we want to make state variables AND so that when those props change, if we make another query, we want it to make that call again
+import FactCard from './FactCard';//since the component is in the same folder/level as this component, we don't need to leading slash
 
 const Display = props => {
     //set and initialize state variables
@@ -22,6 +23,14 @@ const Display = props => {
 
     return (
         <div>
+            <h2 className="text-center">{props.category.charAt(0) + props.category.slice(1)} Facts</h2>
+
+            {/* lets map out the results by displaying the FactCard.jsx */}
+            {
+                facts.map( (this_fact, i) => {
+                    return (<FactCard key={i} fact={this_fact}/>);
+                })
+            }
 
         </div>
     );
