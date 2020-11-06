@@ -14,9 +14,9 @@ const Display = props => {
     useEffect( () => {
         //first argument will run the API load on page load
         //using backticks here because we are inserting
-        Axios.get(`https://cat-fact.herokuapp.com/facts/random?animal_type={props.category_item}&amount={props.amount}`)
+        Axios.get(`https://cat-fact.herokuapp.com/facts/random?animal_type=${props.category}&amount=${props.input}`)
             //update state variable to get the data for the specific item
-            .then(res => setFacts(res.data.all))
+            .then(res => setFacts(res.data))
             .catch(err => console.log(err))
     }, [props])//adding props in the dependency array allows for when the user selects a new item, it will re-run the query to the API to get the new data
 
