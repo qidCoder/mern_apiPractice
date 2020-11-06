@@ -38,19 +38,29 @@ function App() {
 
   return (
     <div className="App">
-      {/* create input text box form */}
-      <input 
-        type="text" 
-        value={input} 
+      {/* create form to hold the input textbox */}
+      <form className="col-5 mx-auto">
+        <div className="form-group">
+          <label>Amount: </label>
 
-        // onChange is so we can see what we are typing
-        onChange={ (e) => {
-            return(
-              setInput(e.target.value)
-            );
-          }
-        }
-      />
+          {/* create input text box form */}
+          <input 
+            type="text" 
+            value={input} 
+
+            // onChange is so we can see what we are typing
+            onChange={ (e) => {
+                return(
+                  setInput(e.target.value)
+                );
+              }
+            }
+          />
+
+
+        </div>
+      </form>
+      
 
       {/* create a button */}
       <button 
