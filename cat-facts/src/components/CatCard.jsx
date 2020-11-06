@@ -7,7 +7,7 @@ const CatCard = props => {
     const {fact} = props;
 
     return (
-        <div className="card col-2">
+        <div className="card col-12 dog">
             <div className="card-body">
                 {/* the .text is one of the key names in the API array */}
                 <h2 className="card-title">{fact.text}</h2>
