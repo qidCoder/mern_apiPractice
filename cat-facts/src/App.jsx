@@ -13,6 +13,10 @@ function App() {
   const [facts, setFacts] = useState([]);
   const [input, setInput] = useState('');//for form input
 
+  //state variables for setting up the drop down menu in the form
+  const categories = ['','horse','cat','snail','dog'];//dropdown categories to choose from
+  const [category, setCategory] = useState(categories[0]);//updating variable to capture what user actually selected
+
   //now let's change the functionality so instead of clicking a button to display the facts, we want all the facts to display on page load. This will need to use useEffect
   //useEffect will run every single time the page loads, unless we give it something in the dependency array (the second argumet)
   //let's have the useEffect update our state on page load, instead of clicking the button
@@ -41,6 +45,21 @@ function App() {
       {/* create form to hold the input textbox */}
       <form className="col-3 mx-auto">
         <div className="form-group">
+          {/* adding a drop-down menu to select a category */}
+          <div className="form-group">
+            <select value={category} className="form-control">
+              {/* map out all the options */}
+              {
+                categories.map( (item,i) => {
+                  return(
+                    <option value={item} key={i}>{item}</option>
+                  );
+                })
+              }
+            </select>
+          </div>
+
+
           <label>Amount: </label>
 
           {/* create input text box form */}
