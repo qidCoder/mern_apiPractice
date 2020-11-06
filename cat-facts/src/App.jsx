@@ -57,7 +57,8 @@ function App() {
               {
                 categories.map( (item,i) => {
                   return(
-                    <option value={item} key={i}>{item}</option>
+                    //add a terinary operator to show the default selection
+                    <option value={item} key={i}>{ item === '' ? '-----Select an Item----' : item}</option>
                   );
                 })
               }
