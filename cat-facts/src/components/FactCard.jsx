@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-const CatCard = props => {
+const FactCard = props => {
     //destructure props
     const {fact} = props;
 
@@ -25,4 +25,4 @@ const CatCard = props => {
     );
 }
 
-export default CatCard;
+export default FactCard;

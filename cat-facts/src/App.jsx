@@ -5,11 +5,11 @@ import React, { useState, useEffect } from 'react';//import state and effect cap
 import Axios from 'axios';//import axios to use instead of fetch
 
 //import components
-import CatCard from './components/CatCard';
+import FactCard from './components/FactCard';
 
 function App() {
 
-  //create andinitialize state variables - will house and manage all the cat facts we will bring in
+  //create andinitialize state variables - will house and manage all the facts we will bring in
   const [facts, setFacts] = useState([]);
 
   //now let's change the functionality so instead of clicking a button to display the facts, we want all the facts to display on page load. This will need to use useEffect
@@ -23,7 +23,7 @@ function App() {
   }, [])
 
   //function definition for button event below - using fetch
-  const getCatFacts = () => {
+  const getFacts = () => {
     return(
       fetch("https://cat-fact.herokuapp.com/facts")
         //fetch doesn't return the data in an object so we actually need to return a JSON filetype
@@ -43,15 +43,15 @@ function App() {
         className="btn btn-primary"
 
         // put a synthetic event on the button
-        onClick={getCatFacts}
-      >Get Cat Facts</button>   
+        onClick={getFacts}
+      >Get Facts</button>   
 
       {/* loop through each fact to display it  */}
       <div className="d-flex justify-content-around flex-wrap p-5">
         {
           facts.map( (a_fact, i) => {
             return (
-              <CatCard key={i} fact={a_fact} />
+              <FactCard key={i} fact={a_fact} />
               //'fact' is the name of the variable used in the component
             );
           })
