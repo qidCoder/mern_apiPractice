@@ -39,12 +39,13 @@ function App() {
   return (
     <div className="App">
       {/* create form to hold the input textbox */}
-      <form className="col-5 mx-auto">
+      <form className="col-3 mx-auto">
         <div className="form-group">
           <label>Amount: </label>
 
           {/* create input text box form */}
           <input 
+            className="form-control"
             type="text" 
             value={input} 
 
@@ -57,18 +58,21 @@ function App() {
             }
           />
 
+          {/* adding submit button here */}
+          <input type="submit" value="Submit" className="btn btn-primary" />
+
 
         </div>
       </form>
       
-
+      {/* we no longer need this button since it is now in the form */}
       {/* create a button */}
-      <button 
+      {/* <button 
         className="btn btn-primary"
 
         // put a synthetic event on the button
         onClick={getFacts}
-      >Get Facts</button>   
+      >Get Facts</button>    */}
 
       
       
