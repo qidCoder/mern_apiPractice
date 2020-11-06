@@ -11,7 +11,8 @@ const CatCard = props => {
             <div className="card-body">
                 {/* the .text is one of the key names in the API array */}
                 <h2 className="card-title">{fact.text}</h2>
-                <h6 className="card-subtitle text-muted my-3">Posted by: {fact.user.first} {fact.user.last}</h6>
+                {/* commenting out this user for now since it is throwing an error. The error is that the API has a single instance without a user */}
+                {/* <h6 className="card-subtitle text-muted my-3">Posted by: {fact.user.name.first} {fact.user.name.last}</h6> */}
             </div>
         </div>
     );

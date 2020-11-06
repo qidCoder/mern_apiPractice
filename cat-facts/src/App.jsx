@@ -3,6 +3,9 @@ import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css";//import bootstrap for styling
 import React, { useState, useEffect } from 'react';//import state and effect capabilities
 
+//import components
+import CatCard from './components/CatCard';
+
 function App() {
 
   //create andinitialize state variables - will house and manage all the cat facts we will bring in
@@ -31,6 +34,16 @@ function App() {
         // put a synthetic event on the button
         onClick={getCatFacts}
       >Get Cat Facts</button>   
+
+      {/* loop through each fact to display it  */}
+      {
+        facts.map( (a_fact, i) => {
+          return (
+            <CatCard key={i} fact={a_fact} />
+            //'fact' is the name of the variable used in the component
+          );
+        })
+      }
       
     </div>
   );
