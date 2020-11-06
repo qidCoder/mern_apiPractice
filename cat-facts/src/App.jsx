@@ -46,16 +46,6 @@ function App() {
         onClick={getFacts}
       >Get Facts</button>   
 
-      {/* loop through each fact to display it  */}
-      <div className="d-flex justify-content-around flex-wrap p-5">
-        {
-          facts.map( (a_fact, i) => {
-            return (
-              <FactCard key={i} fact={a_fact} />
-              //'fact' is the name of the variable used in the component
-            );
-          })
-        }
       </div>
       
     </div>
