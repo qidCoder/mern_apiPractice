@@ -1,0 +1,20 @@
+//this component will display all the things we want on our cat card
+
+import React from 'react';
+
+const CatCard = props => {
+    //destructure props
+    const {fact} = props;
+
+    return (
+        <div className="card">
+            <div className="card-body">
+                {/* the .text is one of the key names in the API array */}
+                <h2 className="card-title">{fact.text}</h2>
+                <h6 className="card-subtitle text-muted my-3">Posted by: {fact.user.first} {fact.user.last}</h6>
+            </div>
+        </div>
+    );
+}
+
+export default CatCard;
