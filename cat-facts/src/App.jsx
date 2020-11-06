@@ -2,43 +2,20 @@ import logo from './logo.svg';
 import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css";//import bootstrap for styling
 import React, { useState, useEffect } from 'react';//import state and effect capabilities
-import Axios from 'axios';//import axios to use instead of fetch
 
 //import components
-import FactCard from './components/FactCard';
+//removed import of FactCard as the Display component takes care of it now
+import Display from "./components/Display";//this will be the component we will make the API request in 
 
 function App() {
 
   //create and initialize state variables - will house and manage all the facts we will bring in
-  const [facts, setFacts] = useState([]);
+  //removed setFacts as the Display component takes care of that now
   const [input, setInput] = useState('');//for form input
 
   //state variables for setting up the drop down menu in the form
   const categories = ['','horse','cat','snail','dog'];//dropdown categories to choose from
   const [category, setCategory] = useState(categories[0]);//updating variable to capture what user actually selected
-
-  //now let's change the functionality so instead of clicking a button to display the facts, we want all the facts to display on page load. This will need to use useEffect
-  //useEffect will run every single time the page loads, unless we give it something in the dependency array (the second argumet)
-  //let's have the useEffect update our state on page load, instead of clicking the button
-  useEffect( () => {
-    //replacing the fetch method with axios to get the API data
-    Axios.get("https://cat-fact.herokuapp.com/facts")
-      .then( res => setFacts(res.data.all))
-      .catch( err => console.log(err))
-  }, [])
-
-  //function definition for button event below - using fetch
-  const getFacts = () => {
-    return(
-      fetch("https://cat-fact.herokuapp.com/facts")
-        //fetch doesn't return the data in an object so we actually need to return a JSON filetype
-        //we need to do it in 2 steps, one to convert the data to JSON
-        .then(res => res.json())
-        //second to do something with the data - update the state to capture the entire array
-        .then(res => setFacts(res.all))
-        .catch(err => console.log(err))
-    );
-  }
 
   return (
     <div className="App">
@@ -66,7 +43,7 @@ function App() {
           </div>
 
 
-          <label>Amount: </label>
+          <label>Amount of facts to display: </label>
 
           {/* create input text box form */}
           <input 
@@ -88,18 +65,7 @@ function App() {
 
 
         </div>
-      </form>
-      
-      {/* we no longer need this button since it is now in the form */}
-      {/* create a button */}
-      {/* <button 
-        className="btn btn-primary"
-
-        // put a synthetic event on the button
-        onClick={getFacts}
-      >Get Facts</button>    */}
-
-      
+      </form>     
       
     </div>
   );
