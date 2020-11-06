@@ -47,7 +47,12 @@ function App() {
         <div className="form-group">
           {/* adding a drop-down menu to select a category */}
           <div className="form-group">
-            <select value={category} className="form-control">
+            {/* add in the onChange function so you can see what you selected */}
+            <select value={category} className="form-control" onChange={ e => {
+              return(
+                setCategory(e.target.value)
+              );
+            }}>
               {/* map out all the options */}
               {
                 categories.map( (item,i) => {
