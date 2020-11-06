@@ -46,7 +46,7 @@ function App() {
         onClick={getFacts}
       >Get Facts</button>   
 
-      </div>
+      
       
     </div>
   );
