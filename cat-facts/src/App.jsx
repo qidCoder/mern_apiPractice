@@ -12,8 +12,8 @@ function App() {
   const [facts, setFacts] = useState([]);
 
   //now let's change the functionality so instead of clicking a button to display the facts, we want all the facts to display on page load. This will need to use useEffect
-  //useEffect will run every single time getCatFacts() runs, unless we give it something in the dependency array (the second argumet)
-  useEffect( () => {console.log("Hello")})
+  //useEffect will run every single time the page loads, unless we give it something in the dependency array (the second argumet)
+  useEffect( () => {console.log("Hello")}, [])
 
   //function definition for button event below - using fetch
   const getCatFacts = () => {
