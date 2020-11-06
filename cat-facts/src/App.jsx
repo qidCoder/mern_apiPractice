@@ -8,6 +8,10 @@ function App() {
   const getCatFacts = () => {
     return(
       fetch("https://cat-fact.herokuapp.com/facts")
+        //fetch doesn't return the data in an object so we actually need to return a JSON filetype
+        //we need to do it in 2 steps, one to convert the data to JSON
+        .then(res => res.json())
+        //second to do something with the data, i.e. read it
         .then(res => console.log(res))
         .catch(err => console.log(err))
     );
@@ -15,7 +19,7 @@ function App() {
 
   return (
     <div className="App">
-      
+
       {/* create a button */}
       <button 
         className="btn btn-primary"
